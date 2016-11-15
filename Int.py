@@ -100,26 +100,39 @@ def printAccInt():
     
 def convToScale(i):
 	return i[0]
+
+
 """
 For testing results
 """
 printAccInt()
-"""
-not working atm
+"                       Plot of Luminosity vs Redshift                  "
+"---------------------------------------------------------------------------"
 d1 = 1.5*accurateInt(1,0,0.5)[0]
 d2 = 2*(accurateInt(1, 0, 1))[0]
 d3 = 7*(accurateInt(1, 0, 6))[0]
-x = np.array([d1,d2,d3])
-y = np.linspace(0, 6, num=100)
-x.shape()
-y.shape()
-plt.plot(x,y)
-
-plt.xlabel('Red Shift (z)')
-plt.ylabel('Luminosity Distance (Dl)')
-plt.title('Luminosity Distance vs redshift')
+y = np.array([d1,d2,d3])
+x = np.array([0.5,1.,6.])
+plt.axis([0,10,0,16])
+plt.plot(x, y, 'ro')
+plt.xlabel('Redshift (z)')
+plt.ylabel('Luminosity Distance-Dl (Mpc)')
+plt.title('Luminosity Distance vs Redshift')
 plt.grid(True)
 plt.savefig("LD_vs_Rs.png")
 plt.show()
-
-"""
+"                       Plot of Lookback Time vs Redshift                  "
+"--------------------------------------------------------------------------"
+d1 = accurateInt(0,0,0.5)[0]
+d2 = accurateInt(0, 0, 1)[0]
+d3 = accurateInt(0, 0, 6)[0]
+y = np.array([d1,d2,d3])
+x = np.array([0.5,1.,6.])
+plt.axis([0,8,0,1])
+plt.plot(x, y, 'ro')
+plt.xlabel('Redshift (z)')
+plt.ylabel('Lookback Time (Gyr)')
+plt.title('Lookback Time vs Redshift')
+plt.grid(True)
+plt.savefig("LB_vs_Rs.png")
+plt.show()
